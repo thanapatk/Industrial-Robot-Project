@@ -22,20 +22,7 @@ def solve_time(
     Returns:
         float: Time [s] at which the robotic arm should intercept the moving box.
     """
-    sol_1 = (
-        np.sqrt(
-            a_max**2 * dx**2 * v_max**2
-            - a_max**2 * dy**2 * v_con**2
-            + a_max**2 * dy**2 * v_max**2
-            - a_max**2 * dz**2 * v_con**2
-            + a_max**2 * dz**2 * v_max**2
-            - 2 * a_max * dx * v_con * v_max**3
-            + v_con**2 * v_max**4
-        )
-        - v_max**3
-        + a_max * dx * v_con
-    ) / (a_max * (v_con**2 - v_max**2))
-    sol_2 = -(
+    return -(
         v_max**3
         + np.sqrt(
             a_max**2 * dx**2 * v_max**2
@@ -48,8 +35,6 @@ def solve_time(
         )
         - a_max * dx * v_con
     ) / (a_max * (v_con**2 - v_max**2))
-
-    return max(sol_1, sol_2)
 
 
 if __name__ == "__main__":
