@@ -78,6 +78,6 @@ if __name__ == "__main__":
     time.sleep(0.5)
 
     # move back to home position
-    arm.movel(f"p{str(home_pos)}")
+    arm.movel(f"p{str(home_pos)}", a=arm_a_max, v=arm_v_max)
 
     conv.stop()
